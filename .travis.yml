@@ -48,6 +48,8 @@ install:
     # by default, --remote is not used on travis
     - git submodule update --remote --force
     - composer install --prefer-dist --no-progress --no-suggest -o
+    # Temporary, while Doctrine is not merged, it will avoid one error tasksTest
+    - echo 'error_reporting = E_ALL & ~E_DEPRECATED' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 script:
     - php data/bin/check_configuration.php
