@@ -363,9 +363,9 @@ abstract class sfBrowserBase
       }
       else
       {
-        if ($response->getContent())
+        if ($content = $response->getContent())
         {
-          @$this->dom->loadHTML($response->getContent());
+          @$this->dom->loadHTML($content);
         }
       }
       $this->domCssSelector = new sfDomCssSelector($this->dom);
